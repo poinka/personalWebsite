@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 1</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1 class="title">Lab 1</h1>
+        <div>
+        <p>I have a button: <button id="button1">click me</button></p>
+        <p></p>
+        <script>
+            const mybutton = document.getElementById("button1")
+            mybutton.addEventListener("click", function(){
+                mybutton.innerHTML = "You clicked me!"
+            })
+        </script>
+        <div id="center">
+            <h2>Some cute cats for you <3</h2>
+        <img src="images/загруженное (1).png" width = 150 />
+        <img src="images/22 Cats Basking in a Sun Bath — Cuteness.png" width = 150 />
+        <img src="images/These two cats remind.png" width = 150 />
+        </div>
+        <a href="https://innopolis.university/">go to innopolis university web-site</a>
+        </div>
+
+        <p>Ordered list:</p>
+        <ol>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+        </ol>
+        <p>Unordered list:</p>
+        <ul>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+        </ul>
+        
+        
+    <label for="fahrenheit">Enter the amount in Fahrenheit:</label>
+    <p></p>
+    <input id="fahrenheit" type="number" placeholder="Example: 32" />
+    <p></p>
+    <button id="convert">Convert</button>
+    <p></p>
+    Result: <p id="result">awaiting input...</p>
+
+    <script>
+        const inputEl = document.getElementById('fahrenheit');
+        const convertButton = document.getElementById('convert');
+        const resultEl = document.getElementById('result');
+        convertButton.addEventListener('click', function() {
+            const fahrenheit = parseInt(inputEl.value);
+            // TODO: validate that the input value is a valid number
+            const celsius = (5/9) * (fahrenheit - 32);
+            resultEl.innerHTML = `${fahrenheit}&deg;F is ${celsius}&deg;C`;
+    });
+</script>
+<button id="goback" onclick="document.location='/homepage.html'">go back</button>
+    </body>
+</html>
