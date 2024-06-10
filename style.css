@@ -41,6 +41,9 @@ img {
     border: 0px;
     margin: 0px;
 }
+.icons:hover {
+    background-color: aliceblue;
+}
 #gh-link, #tg-link, #email {
     text-decoration: none;
 }
