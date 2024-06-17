@@ -75,3 +75,26 @@ li {
 a {
     color: rgb(101, 71, 31);
 }
+section {
+    margin-bottom: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 30%;
+}
+.flex-row,
+.flex-column,
+.justify-content,
+.align-items {
+    display: inline-block;
+}
+
+.flex-row > div > div {
+    flex-grow: 1;
+    border: 1px solid #999;
+    padding: 10px;
+    margin-right: 10px;
+}
+.flex-row > div {
+    display: flex; 
+    margin: 5%;
+}

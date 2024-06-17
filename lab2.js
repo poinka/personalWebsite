@@ -4,9 +4,9 @@ btn.addEventListener("click", () => {
     alert("Button clicked");
 });
 
-setTimeout(() => {
+/*setTimeout(() => {
     alert("1 second passed");
-}, 1000);
+}, 1000);*/
 
 const fun = () => {
     console.log("Button clicked from variable");
