@@ -3,10 +3,11 @@
     color: rgb(79, 75, 70);
     background: rgb(229, 222, 195);
     text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 body {
     background-color: rgb(222, 222, 216);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .main_page {
     display: flex; 
@@ -67,6 +68,7 @@ img {
 h2 {
     color: rgb(49, 46, 44);
     font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 li {
     font-size: 20px;
