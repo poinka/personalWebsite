@@ -105,14 +105,15 @@ section {
     display: flex; 
     margin: 5%;
 }
-.flex-container-block {
-    display: block;
-    max-width: 50%;
-    text-align: center;
-    margin: 10%;
-}
-.flex-container-line {
-    display: inline-flex;
-    max-width: 80%;
-    margin: auto;
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }

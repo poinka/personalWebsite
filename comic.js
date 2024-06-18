@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const emailParam = new URLSearchParams({email : email});
     const urlId = `https://fwd.innopolis.university/api/hw2?${emailParam.toString()}`;
     
-    //console.log(urlParams.toString());
-
     const idResponse = await fetch(urlId);
 
     if (idResponse.ok) {
@@ -16,23 +14,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (comicResponse.ok) {
             const data = await comicResponse.json();
             
-            const comicContainer1 = document.getElementById("comic-container-line");
+            const comicContainer = document.getElementById("comic-container");
 
             const titleElement = document.createElement('h2');
             titleElement.textContent = `Title: ${data.safe_title}`; 
-            comicContainer1.appendChild(titleElement);
-
-            const dateElement = document.createElement('h2');
-            dateElement.innerHTML = `Date: ${new Date(data.time).toLocaleDateString()}`;
-            comicContainer1.appendChild(dateElement);
+            comicContainer.appendChild(titleElement);
 
             const imgElement = document.createElement('img');
             imgElement.src = data.img;
             imgElement.alt = data.alt;
-            comicContainer1.appendChild(imgElement);
+            comicContainer.appendChild(imgElement);
 
-            const comicContainer2 = document.getElementById("comic-container-block2");
-
+            const dateElement = document.createElement('h2');
+            const date = new Date(data.year, data.month-1, data.day);
+            //console.log(data.year, data.month, data.day);
+            dateElement.textContent = `Date: ${date.toLocaleDateString()}`;
+            comicContainer.appendChild(dateElement);
             
             
         } else {
