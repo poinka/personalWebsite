@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const dateElement = document.createElement('h2');
             const date = new Date(data.year, data.month-1, data.day);
-            //console.log(data.year, data.month, data.day);
+            
             dateElement.textContent = `Date: ${date.toLocaleDateString()}`;
             comicContainer.appendChild(dateElement);
             

@@ -71,6 +71,10 @@ h2, h3 {
     font-size: 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+h1 {
+    color: rgb(49, 46, 44);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 li {
     font-size: 20px;
     margin: 10px;
@@ -89,13 +93,12 @@ section {
     width: 30%;
 }
 .flex-row,
-.flex-column,
 .justify-content,
 .align-items {
     display: inline-block;
 }
 
-.flex-row > div > div {
+.flex-row > div > div, .flex-column > div > div {
     flex-grow: 1;
     border: 1px solid #999;
     padding: 10px;
@@ -103,8 +106,19 @@ section {
 }
 .flex-row > div {
     display: flex; 
+    flex-direction: row;
     margin: 5%;
 }
+.flex-column {
+    display: flex;
+    float: left;
+}
+.flex-column > div {
+    display: flex; 
+    margin: 5%;
+    flex-direction: column;
+}
+
 .flex-container {
     display: flex;
     flex-direction: column;
@@ -116,4 +130,17 @@ section {
     background-color: #f0f0f0;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#part2 {
+    display: none;
+}
+#part2.active {
+    display: block;
+    color: transparent;
+    background-color: lightgray;
+}
+#part2.active:hover {
+    color: black;
+    background-color: initial;
 }

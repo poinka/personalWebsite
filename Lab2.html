@@ -5,37 +5,145 @@
         <link rel="stylesheet" href="style.css">
         <meta charset="UTF-8">
     </head>
-<body>
-    <h1 class="title">Lab 2</h1>
-    <h1>Programming Paradigms supported in JavaScript</h1>
-        <h3>Event-driven</h3>
-        <p>Event-driven programming is a paradigm in which the flow of program execution depends upon events/messages.</p>
-        <h4>Examples:</h4>
+    <body>
+        <h1 class="title">Lab 2</h1>
+        <h1>Programming Paradigms supported in JavaScript</h1>
+
+        <h3> - Event-driven</h3>
+            <p>Event-driven programming is a paradigm in which the flow of program execution depends upon events/messages.</p>
+            <h4>Examples:</h4>
+            <div class="block" style="text-align: center; width: 50%;">
+                <button id="button_clicked">click me</button>
+                <button onclick="window.print()">click here to print the page</button>
+            </div>
+
+        <h3> - Object-Oriented</h3>
+            <h4>Examples:</h4>
+            <div class="block" id="Object-Oriented" style="text-align: center; width: 50%;">
+            </div>
+
+        <h3> - Functional</h3>
+
+        <h1>Events and the event-loop</h1>   
+        <p> A common use case for preventing default behavior is to perform form validation:</p> 
         <div class="block" style="text-align: center; width: 50%;">
-            <button id="button_clicked">click me</button>
-            <button onclick="window.print()">click here to print the page</button>
+            <form id="form" action="/submit_name.html">
+                <div>
+                    <label for="name">Name: </label>
+                    <input id="name" type="text">
+                </div>
+                <input id="submit" type="submit">
+            </form>
+        </div>
+
+        <p>Bubbling refers to the fact that when an event occurs on a child, it bubbles up to the parent elements. For example:</p>
+        <div class="block" style="text-align: center; width: 50%;">
+            <div onclick="alert('div 1 clicked')">
+                <div onclick="alert('div 2 clicked')">
+                    <button onclick="alert('button clicked')">
+                        Click me
+                    </button>
+                </div>
+            </div>
         </div>
     
+    <h1>Guessing Game</h1>
+    <div class="block" style="text-align: center; width: 50%;">
+        <form id="formForGame">
+        <label>
+            Guess a number between 1 and 10 (inclusive):
+            <input id="input" type="number" min="1" max="10" />
+        </label>
+        <button type="submit" id="guess">Guess</button>
+        </form>
+        <p id="result">Result: </p>
+    </div>
+
+    <h1>Programming Jokes</h1>
+    <div class="block" style="text-align: center; width: 50%;">
+        <button id="get-joke-btn">Get a random joke</button>
+        <form id="type-form">
+            <label><input type="radio" name="type" value="single" />Single</label>
+            <br/>
+            <label><input type="radio" name="type" value="twopart" />Twopart</label>
+            <br />
+            <label><input type="radio" name="type" value="" checked/>Any</label>
+        </form>
+        <p id="part1"></p>
+        <p id="part2"></p>
+    </div>
+
+    <script>
+        const getJokeBtn = document.getElementById('get-joke-btn');
+        const part1 = document.getElementById('part1');
+        const part2 = document.getElementById('part2');
+        const typeForm = document.getElementById('type-form');
+
+        function fetchSomeJoke(type) {
+            const params = new URLSearchParams();
+            if (type) {
+                params.append('type', type);
+            }
+            return fetch('https://v2.jokeapi.dev/joke/Programming?' + params.toString())
+                .then(r => r.json());
+        }
+
+        function handleJoke(jokeObj) {
+            switch (jokeObj.type) {
+                case 'single':
+                    return handleOnePartJoke(jokeObj);
+                case 'twopart':
+                    return handleTwoPartJoke(jokeObj);
+            }
+        }
+
+        function handleOnePartJoke(jokeObj) {
+            const { joke } = jokeObj;
+            part1.textContent = joke; // Note: never use innerHTML for unsantized input you don't control
+            part2.classList.remove('active');
+        }
+
+        function handleTwoPartJoke(jokeObj) {
+            const { setup, delivery } = jokeObj;
+            part1.textContent = setup;
+            part2.classList.add('active');
+            part2.textContent = delivery;
+        }
+
+        getJokeBtn.addEventListener('click', async function (e) {
+            part1.textContent = part2.textContent = 'Loading...';
+            const type = typeForm.elements.type.value;
+            const joke = await fetchSomeJoke(type);
+            handleJoke(joke);
+        });
+    </script>
     <script src="lab2.js"></script>
 
     <h1>CSS FLexbox</h1>
     <h3>Flex-direction</h3>
-    <section class="flex-row">
-        <div>
-            <div style="width: 20%;">Item 1</div>
-            <div style="width: 40%;">Item 2</div>
-            <div style="width: 40%;">Item 3</div>
+    <div class="block_column">
+        <div class="block_row">
+            <button onclick="document.getElementById('Flex-direction').classList.replace('flex-column', 'flex-row')" style="width: 20%; margin: auto;">Make row Flex-direction</button>
+            <button onclick="document.getElementById('Flex-direction').classList.replace('flex-row', 'flex-column')" style="width: 20%; margin: auto;">Make column Flex-direction</button>
         </div>
-        <div>
-            <div style="width: 20%;">Item 1</div>
-            <div style="width: 40%;">Item 2</div>
-            <div style="width: 40%;">Item 3</div>
-        </div>
-        <div>
-            <div style="width: 20%;">Item 1</div>
-            <div style="width: 40%;">Item 2</div>
-            <div style="width: 40%;">Item 3</div>
-        </div>
-    </section>
+
+        <section id="Flex-direction" class="flex-row">
+            <div>
+                <div style="width: 20%;">Item 1</div>
+                <div style="width: 40%;">Item 2</div>
+                <div style="width: 40%;">Item 3</div>
+            </div>
+            <div>
+                <div style="width: 20%;">Item 1</div>
+                <div style="width: 40%;">Item 2</div>
+                <div style="width: 40%;">Item 3</div>
+            </div>
+            <div>
+                <div style="width: 20%;">Item 1</div>
+                <div style="width: 40%;">Item 2</div>
+                <div style="width: 40%;">Item 3</div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
