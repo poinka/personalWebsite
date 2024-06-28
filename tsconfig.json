@@ -1,0 +1,13 @@
+{
+    "include": ["src/*.ts"],
+    "compilerOptions": {
+      "strict": true,
+      "module": "es2015",
+      "esModuleInterop": true,
+      "target": "ES2017",
+      "outDir": "dist",
+      "noUncheckedIndexedAccess": true,
+      "moduleResolution": "Node",
+    },
+
+  }
