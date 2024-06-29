@@ -4,10 +4,9 @@ interface Comic {
     safe_title: string;
     img: string;
     alt: string;
-    date: {year: number; month: number; day: number;}
-}
-interface ApiResponse {
-    comic?: Comic;
+    year: number; 
+    month: number; 
+    day: number;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -25,27 +24,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const comicResponse: Response = await fetch(url);
             if (comicResponse.ok) {
-                const data: ApiResponse = await comicResponse.json();
-            
-                const comicContainer: HTMLElement = document.getElementById("comic-container")!;
+                const data: Comic = await comicResponse.json();
+                
+                const comicContainer = document.getElementById("comic-container") as HTMLElement;
 
                 const titleElement: HTMLElement = document.createElement('h2');
-                titleElement.textContent = `Title: ${data.comic?.safe_title}`; 
+                titleElement.textContent = `Title: ${data.safe_title}`; 
                 comicContainer.appendChild(titleElement);
 
                 const imgElement: HTMLImageElement = document.createElement('img');
-                imgElement.src = data.comic?.img!;
-                imgElement.alt = data.comic?.alt!;
+                imgElement.src = data.img;
+                imgElement.alt = data.alt;
                 comicContainer.appendChild(imgElement);
 
                 const dateElement: HTMLElement = document.createElement('h2');
-                const date = new Date(data.comic?.date.year!, data.comic?.date.month!-1, data.comic?.date.day);
-            
+                const date: Date = new Date(data.year, data.month-1, data.day);
+
                 dateElement.textContent = `Date: ${date.toLocaleDateString()}`;
                 comicContainer.appendChild(dateElement);
 
                 const fromNowElement: HTMLElement = document.createElement('h2');
                 fromNowElement.textContent = `Comic was released ${formatDistanceToNowStrict(date)} ago`;
+                comicContainer.appendChild(fromNowElement);
             
             } else {
                 alert("Error fetching comic: " + comicResponse.status);
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             alert("Error finding ID: " + idResponse.status);
         }
     } catch (error) {
-        console.error(error);
+        //console.error(error);
         alert("An unexpected error")
     }
 })
