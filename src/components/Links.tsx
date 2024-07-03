@@ -1,12 +1,12 @@
 import React from 'react'
-import ghImg from './img/ghImg.png'
-import tgImg from './img/telegram-logo-black-and-white_1677484911374-1677484912675.png'
-import emailImg from './img/Gmail-PNG-File-Download-Free.png'
+import ghImg from '../images/github-logo.png'
+import tgImg from '../images/telegram-logo.png'
+import emailImg from '../images/gmail-logo.png'
 
 class Links extends React.Component {
   render() {
     return (
-      <h2>
+      <h2 className="links">
         Links:
         <a id="gh-link" href="https://github.com/poinka">
           {' '}

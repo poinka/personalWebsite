@@ -20,8 +20,8 @@ body {
   font-size: 20px;
   border: 2px dashed rgb(79, 75, 70);
   border-radius: 15px;
-  padding: 8px;
-  margin: 0 2%;
+  padding: 2%;
+  margin: 2% 1%;
   display: inline;
 }
 .block_column {
@@ -41,7 +41,7 @@ img {
   height: auto;
   border-radius: 5%;
   border: 2px solid rgb(79, 75, 70);
-  margin: 10px;
+  margin: 5%;
 }
 .icons {
   height: 20px;
@@ -55,6 +55,10 @@ img {
 #tg-link,
 #email {
   text-decoration: none;
+}
+.links {
+  text-align: center;
+  margin: 0;
 }
 #center {
   margin: 10px auto 20px;
