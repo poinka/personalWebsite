@@ -1,4 +1,4 @@
-module.exports = {
-    basePath: '',
-    assetPrefix: './',
-  }
+export default {
+  basePath: "",
+  assetPrefix: "./",
+};
