@@ -1,4 +1,5 @@
 {
+  "homepage": "https://poinka.github.io/personalWebsite",
   "name": "next-personal-website",
   "version": "0.1.0",
   "private": true,
@@ -8,12 +9,15 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
-    "deploy": "npm run build && npm run export",
-    "format:check": "prettier --check ."
+    "predeploy": "npm run build && npm run lint && npm run format:check",
+    "deploy": "gh-pages -d next",
+    "format:check": "prettier --check .",
+    "fix": "prettier --write ."
   },
   "dependencies": {
     "axios": "^1.7.2",
     "next": "14.2.4",
+    "prettier": "^3.3.2",
     "react": "^18",
     "react-dom": "^18"
   },

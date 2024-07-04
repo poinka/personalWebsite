@@ -1,13 +1,13 @@
-"use client"
-import { useEffect } from 'react';
-import Image from 'next/image';
+"use client";
+import { useEffect } from "react";
+import Image from "next/image";
 
 export default function Home() {
   useEffect(() => {
     const button1 = document.getElementById("button1");
-    const inputEl = document.getElementById('fahrenheit') as HTMLInputElement;
-    const convertButton = document.getElementById('convert');
-    const resultEl = document.getElementById('result');
+    const inputEl = document.getElementById("fahrenheit") as HTMLInputElement;
+    const convertButton = document.getElementById("convert");
+    const resultEl = document.getElementById("result");
 
     if (button1) {
       button1.addEventListener("click", function () {
@@ -16,7 +16,7 @@ export default function Home() {
     }
 
     if (convertButton && inputEl && resultEl) {
-      convertButton.addEventListener('click', function () {
+      convertButton.addEventListener("click", function () {
         const fahrenheit = parseInt(inputEl.value);
         if (isNaN(fahrenheit)) {
           resultEl.innerHTML = `Please enter a valid number.`;
@@ -30,22 +30,52 @@ export default function Home() {
 
   return (
     <main>
-      <h1 className="main-title" style={{color: "black"}}>Lab 1</h1>
+      <h1 className="main-title" style={{ color: "black" }}>
+        Lab 1
+      </h1>
       <h2>What have we learnt:</h2>
-      <ol style={{marginLeft: "5%"}}>
+      <ol style={{ marginLeft: "5%" }}>
         <li>
-          <p>I have a button: <button style={{backgroundColor: "#8b7c5b"}} id="button1">click me</button></p>
+          <p>
+            I have a button:{" "}
+            <button style={{ backgroundColor: "#8b7c5b" }} id="button1">
+              click me
+            </button>
+          </p>
         </li>
         <li>
           <div className="block-center">
             <h2>Some cute cats for you &lt;3</h2>
-            <Image alt="cat1" src="/catSayHi.png"  width={1000} height={1000} style={{width: "150px"}}/> 
-            <Image alt="cat2" src="/catSunBath.png" width={1000} height={1000} style={{width: "150px"}}/> 
-            <Image alt="cat3" src="/TheseTwoCats.png" width={1000} height={1000} style={{width: "150px"}}/> 
+            <Image
+              alt="cat1"
+              src="/catSayHi.png"
+              width={1000}
+              height={1000}
+              style={{ width: "150px" }}
+            />
+            <Image
+              alt="cat2"
+              src="/catSunBath.png"
+              width={1000}
+              height={1000}
+              style={{ width: "150px" }}
+            />
+            <Image
+              alt="cat3"
+              src="/TheseTwoCats.png"
+              width={1000}
+              height={1000}
+              style={{ width: "150px" }}
+            />
           </div>
         </li>
         <li>
-          <p>Link: <a href="https://innopolis.university/">go to innopolis university web-site</a></p>
+          <p>
+            Link:{" "}
+            <a href="https://innopolis.university/">
+              go to innopolis university web-site
+            </a>
+          </p>
         </li>
         <li>
           <p>Ordered list:</p>
@@ -74,7 +104,12 @@ export default function Home() {
           Result: <p id="result">awaiting input...</p>
         </li>
         <li>
-          <button id="goback" onClick={() => window.location.href = '/homepage.html'}>go back</button>
+          <button
+            id="goback"
+            onClick={() => (window.location.href = "/homepage.html")}
+          >
+            go back
+          </button>
         </li>
       </ol>
     </main>

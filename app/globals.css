@@ -27,7 +27,7 @@ body {
 }
 
 * {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .main-title {
@@ -35,9 +35,11 @@ body {
   color: rgb(231, 226, 221);
   text-align: center;
   margin-top: 3%;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-.header, .footer {
+.header,
+.footer {
   background-color: #8b7c5b;
   text-align: center;
   padding: 1em 0;
@@ -59,7 +61,7 @@ body {
   padding-bottom: 10%; /* To avoid content being hidden under the fixed footer */
 }
 
-.block-comic{
+.block-comic {
   font-size: 20px;
   border: 2px dashed rgb(79, 75, 70);
   border-radius: 15px;
@@ -69,7 +71,6 @@ body {
   text-align: center;
   padding: 2%;
 }
-
 
 img {
   max-width: 100%;
@@ -84,7 +85,7 @@ h2,
 h3 {
   color: rgb(49, 46, 44);
   font-size: 30px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   margin: 2%;
 }
 
@@ -94,7 +95,7 @@ h3 {
   border-radius: 15px;
   display: inline;
   margin: 5%;
-  padding: 2%
+  padding: 2%;
 }
 
 .block-center {
@@ -104,7 +105,7 @@ h3 {
   display: inline-flex;
   width: 60%;
   margin: auto;
-  padding: 2%
+  padding: 2%;
 }
 
 .block-column {
@@ -125,7 +126,7 @@ h3 {
 }
 
 .main-photo {
-  width: 80%;
+  width: 70%;
   height: auto;
 }
 
