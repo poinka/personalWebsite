@@ -1,5 +1,5 @@
 export default {
-  output: 'export',
+  output: "export",
   basePath: "/personalWebsite",
   assetPrefix: "/personalWebsite/",
-}
+};
