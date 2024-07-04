@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: "18.17.0"
 
+      - name: Lint code
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+        
       - name: Cache node modules
         id: cache-node-modules
         uses: actions/cache@v2
@@ -34,12 +40,6 @@ jobs:
 
       - name: Disable Next.js telemetry
         run: npx next telemetry disable
-
-      - name: Lint code
-        run: npm run lint
-
-      - name: Check formatting
-        run: npm run format:check
 
       - name: Build project
         run: npm run build
