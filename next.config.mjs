@@ -1,4 +1,4 @@
 export default {
-  basePath: "",
-  assetPrefix: "./",
+  basePath: "/personalWebsite",
+  assetPrefix: "/personalWebsite/",
 };
