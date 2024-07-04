@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   output: 'export',
   basePath: "/personalWebsite",
   assetPrefix: "/personalWebsite/",
