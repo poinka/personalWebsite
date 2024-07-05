@@ -10,7 +10,7 @@ export default function Home() {
           <div>
             <Image
               className="main-photo"
-              src="/mainPhoto.png"
+              src="mainPhoto.png"
               alt="Main photo"
               width={1000}
               height={1000}
