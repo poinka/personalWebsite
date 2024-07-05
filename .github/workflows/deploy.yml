@@ -34,4 +34,4 @@ jobs:
         if: success()
         run: |
           npm install -g gh-pages
-          gh-pages -d out -b main -r https://github.com/poinka/personalWebsite.github.io.git
+          gh-pages -d out -b main -r https://poinka.github.io/personalWebsite/
