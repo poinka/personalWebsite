@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - main
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,8 +33,23 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        if: success()
-        run: |
-          npm install -g gh-pages
-          gh-pages -d out -b main -r https://poinka.github.io/personalWebsite/
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+      - name: Set up Pages
+        uses: actions/configure-pages@v2
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: .
+      - name: Deploy
+        id: deployment # it was previously used to get the deployment URL
+        uses: actions/deploy-pages@v1
