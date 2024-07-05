@@ -11,7 +11,7 @@ export default function Home() {
             <Image
               className="main-photo"
               src="mainPhoto.png"
-              alt="Main photo"
+              alt="main photo"
               width={1000}
               height={1000}
             />
