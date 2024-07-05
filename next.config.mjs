@@ -1,4 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+export default {
+  output: "export",
+  basePath: "/personalWebsite",
+  assetPrefix: "/personalWebsite/",
+};
 
-export default nextConfig;
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {};
+
+// export default nextConfig;
