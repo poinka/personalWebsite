@@ -1,7 +1,7 @@
 export default {
   output: "export",
+  reactStrictMode: true,
   basePath: "/personalWebsite",
-  assetPrefix: "/personalWebsite/",
 };
 
 // /** @type {import('next').NextConfig} */

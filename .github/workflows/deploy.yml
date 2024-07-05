@@ -19,17 +19,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           lfs: true
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.17.0"
+      - name: Setup Node.js - Cache dependencies - Install dependencies
+        uses: ./.github/workflows/setup-node
 
-      - name: Install dependencies
-        run: npm install
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: next
 
       - name: Run lint
         run: npm run lint
@@ -44,20 +44,19 @@ jobs:
         run: touch ./out/.nojekyll
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
   deploy:
-    needs: build
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    needs: build
+
     steps:
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
