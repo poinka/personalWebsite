@@ -53,6 +53,8 @@ jobs:
     environment:
       name: github-pages
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
