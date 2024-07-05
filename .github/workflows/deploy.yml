@@ -32,24 +32,22 @@ jobs:
 
       - name: Build project
         run: npm run build
+      - name: Static HTML export with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next export
+      - name: Add .nojekyll file
+        run: touch ./out/.nojekyll
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./out
 
   deploy:
     needs: build
     environment:
       name: github-pages
-      url: ${{steps.deployment.outputs.page_url}}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: build-artifact
-      - name: Set up Pages
-        uses: actions/configure-pages@v2
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: .
-      - name: Deploy
-        id: deployment # it was previously used to get the deployment URL
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v1
