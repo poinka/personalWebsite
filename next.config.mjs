@@ -3,7 +3,9 @@
  */
 const nextConfig = {
   output: "export",
-  assetPrefix: "./personalWebsite/",
+  // assetPrefix: "/personalWebsite/",
+
+  assetPrefix: "https://poinka.github.io/personalWebsite/",
 
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
   // trailingSlash: true,
