@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Bio from "./components/Bio";
 import Links from "./components/Links";
 
@@ -8,9 +7,9 @@ export default function Home() {
       <div className="block-line">
         <div className="block-column">
           <div>
-            <Image
+            <img
               className="main-photo"
-              src="/mainPhoto.png"
+              src="mainPhoto.png"
               alt="main photo"
               width={1000}
               height={1000}

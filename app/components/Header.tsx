@@ -10,14 +10,14 @@ export default function Header() {
           <Link href="/">Bio</Link>
         </li>
         <li>
-          <Link href="../Comic">Comic</Link>
+          <Link href="/Comic">Comic</Link>
         </li>
         <li>
           {" "}
           <div className={styles.dropdown}>
             <button className={styles.dropbtn}>Labs</button>
             <div className={styles.dropdowncontent}>
-              <Link href="../Lab1">Lab 1</Link>
+              <Link href="/Lab1">Lab 1</Link>
               <Link href="">Lab 2</Link>
               <Link href="">Lab 3</Link>
             </div>

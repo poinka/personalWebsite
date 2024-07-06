@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Links() {
   return (
     <div className="links-container">
@@ -11,9 +9,9 @@ export default function Links() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
+          <img
             alt="gh_img"
-            src="/github-logo.png"
+            src="github-logo.png"
             className="icons"
             width={1000}
             height={1000}
@@ -25,18 +23,18 @@ export default function Links() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
+          <img
             alt="tg_img"
-            src="/telegram-logo.png"
+            src="telegram-logo.png"
             className="icons"
             width={1000}
             height={1000}
           />
         </a>
         <a id="email" href="mailto:pkorobejnikova425@gmail.com">
-          <Image
+          <img
             alt="email_img"
-            src="/gmail-logo.png"
+            src="gmail-logo.png"
             className="icons"
             width={1000}
             height={1000}

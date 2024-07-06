@@ -1,6 +1,5 @@
 "use client";
 import { useEffect } from "react";
-import Image from "next/image";
 
 export default function Home() {
   useEffect(() => {
@@ -46,23 +45,23 @@ export default function Home() {
         <li>
           <div className="block-center">
             <h2>Some cute cats for you &lt;3</h2>
-            <Image
+            <img
               alt="cat1"
-              src="/catSayHi.png"
+              src="catSayHi.png"
               width={1000}
               height={1000}
               style={{ width: "150px" }}
             />
-            <Image
+            <img
               alt="cat2"
-              src="/catSunBath.png"
+              src="catSunBath.png"
               width={1000}
               height={1000}
               style={{ width: "150px" }}
             />
-            <Image
+            <img
               alt="cat3"
-              src="/TheseTwoCats.png"
+              src="TheseTwoCats.png"
               width={1000}
               height={1000}
               style={{ width: "150px" }}
