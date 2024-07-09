@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <div>
       <h1 className="main-title" style={{ color: "black" }}>
         Lab 1
       </h1>
@@ -102,15 +102,7 @@ export default function Home() {
           <p></p>
           Result: <p id="result">awaiting input...</p>
         </li>
-        <li>
-          <button
-            id="goback"
-            onClick={() => (window.location.href = "/homepage.html")}
-          >
-            go back
-          </button>
-        </li>
       </ol>
-    </main>
+      </div>
   );
 }

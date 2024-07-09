@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import type { Metadata } from "next";
 
 interface IComic {
   safe_title: string;
@@ -9,6 +10,10 @@ interface IComic {
   month: number;
   day: number;
 }
+export const metadata: Metadata = {
+  title: "Comic",
+  description: "Here you can find the comic.",
+};
 
 const ComicPage: React.FC = async () => {
   let comic: IComic | null = null;
@@ -36,7 +41,7 @@ const ComicPage: React.FC = async () => {
 
   const date = new Date(comic.year, comic.month - 1, comic.day);
   return (
-    <div className="block-comic">
+    <div className="block-comic" >
       <h2>Title: {comic.safe_title}</h2>
       <img
         className="main-photo"
