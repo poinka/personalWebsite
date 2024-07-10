@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import type { Metadata } from "next";
 
 interface IComic {
@@ -23,14 +22,12 @@ const ComicPage: React.FC = async () => {
     const emailParam: URLSearchParams = new URLSearchParams({ email });
     const urlId: string = `https://fwd.innopolis.university/api/hw2?${emailParam.toString()}`;
 
-    const comicIdResponse = await axios.get(urlId);
-    //console.log("First API request:", comicIdResponse);
+    const comicIdResponse = await fetch(urlId);
 
-    const url: string = `https://fwd.innopolis.university/api/comic?id=${comicIdResponse.data}`;
-    const comicDataResponse = await axios.get(url);
-    //console.log("Second API request:", comicDataResponse);
+    const url: string = `https://fwd.innopolis.university/api/comic?id=${await comicIdResponse.json()}`;
+    const comicDataResponse = await fetch(url);
 
-    comic = comicDataResponse.data;
+    comic = await comicDataResponse.json();
   } catch (error) {
     console.error("Error fetching comic data:", error);
   }
